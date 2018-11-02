@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'1c-rpc-docs'
+project = u'1c-websocket-doc'
 copyright = u'2018, best-tech'
 author = u'best-tech'
 
@@ -102,7 +102,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = '1c-rpc-docsdoc'
+htmlhelp_basename = '1c-websocket-doc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -129,7 +129,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, '1c-rpc-docs.tex', u'1С: Предприятие RPC. Документация',
+    (master_doc, '1c-websocket-doc.tex', u'WebSocket клиент и сервер для 1С. Внешний компонент (Документация)',
      u'best-tech', 'manual'),
 ]
 
@@ -139,7 +139,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, '1c-rpc-docs', u'1С: Предприятие RPC. Документация',
+    (master_doc, '1c-rpc-docs', u'WebSocket клиент и сервер для 1С. Внешний компонент (Документация)',
      [author], 1)
 ]
 
@@ -150,8 +150,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, '1c-rpc-docs', u'1С: Предприятие RPC. Документация',
-     author, '1c-rpc-docs', 'Передача сообщений по TCP. Удаленный вызов процедур',
+    (master_doc, '1c-websocket-doc', u'WebSocket клиент и сервер для 1С. Внешний компонент (Документация)',
+     author, '1c-websocket-doc', 'WebSocket клиент и сервер для 1С. Внешний компонент (Документация)',
      'Miscellaneous'),
 ]
 

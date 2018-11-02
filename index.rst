@@ -4,14 +4,14 @@
    contain the root `toctree` directive.
 
 .. meta::
-   :description: Инициализация внешней компоненты RPC
-   :keywords: RPC init
+   :description: Инициализация внешней компоненты 
+   :keywords: 1С, WebSocket, rpc
 
 .. meta::
    :http-equiv=Content-Type: text/html; charset=utf-8
 
 
-1С: Предприятие RPC. Документация
+WebSocket клиент и сервер для 1С. Внешний компонент (Документация)
 =======================================
 
 .. toctree::
@@ -19,6 +19,12 @@
     :caption: Содержание:
 
     init
+
+    client
+
+    server
+
+    tests
 
     errors
 
