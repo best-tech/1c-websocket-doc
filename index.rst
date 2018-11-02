@@ -28,9 +28,9 @@ WebSocket клиент и сервер для 1С. Внешний компоне
 
     errors
 
+
 Другое
 ==================
-
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
