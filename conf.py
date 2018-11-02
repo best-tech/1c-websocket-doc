@@ -139,7 +139,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, '1c-rpc-docs', u'WebSocket клиент и сервер для 1С. Внешний компонент (Документация)',
+    (master_doc, '1c-websocket-doc', u'WebSocket клиент и сервер для 1С. Внешний компонент (Документация)',
      [author], 1)
 ]
 
