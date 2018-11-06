@@ -9,7 +9,7 @@ Win32
 *.sln
 
 _build
-_static
+##_static
 ## VS projects and solutions
 #*proj
 *.filters
