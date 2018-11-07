@@ -33,7 +33,7 @@ slack bot
     // Запустить процедуру отправить сообщение в канал
     Процедура SlackBot()
 
-        ПутьККомпоненте = "c:/RP1C_Win_32.dll";
+        ПутьККомпоненте = "c:/websocket.dll";
         ИДКанала = "C23535436TR";                
         ТокенСлак = "xora-3234234324....";
         
@@ -87,11 +87,9 @@ slack bot
             
         КонецПопытки;
         
-        Данные = "";
-        
-        Клиент.Принять(1000, Данные);
-        
-        Клиент.Отправить(ТекстСообщения);
+       	Данные = "";
+	
+        ГотовПринимать = Ложь;
         
         Пока Клиент.Принять(0, Данные) Цикл 
             
@@ -99,7 +97,12 @@ slack bot
             
             Текст = Значение.Получить("text");
             
-            Если Текст = Неопределено ИЛИ НЕ Значение.Получить("reply_to") = Неопределено Тогда
+            Если Значение.Получить("type") = "hello" Тогда
+                Клиент.Отправить(ТекстСообщения);
+                ГотовПринимать = Истина;
+            КонецЕсли;
+            
+            Если Текст = Неопределено ИЛИ НЕ Значение.Получить("reply_to") = Неопределено ИЛИ НЕ ГотовПринимать Тогда
                 Продолжить;
             КонецЕсли;
             
@@ -149,3 +152,76 @@ slack bot
         Возврат ЗаписьJSON.Закрыть();
         
     КонецФункции
+
+
+web client (html/js)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Пример реалзации websocket клиента в ПолеHTMLДокумента или на web-странице корпоративного портала
+
+.. index:: html/js
+.. function:: html_client()
+        
+    Описание: Пример бота Slack с постоянным подключения и отслеживанием событий
+    
+.. code-block:: html
+   :linenos:
+
+    <!DOCTYPE html>
+    <meta charset="utf-8" />
+    <title>WebSocket Test</title>
+    <script language="javascript" type="text/javascript">
+
+        var wsUri = "ws://127.0.0.1:9098";
+        var output;
+
+        function init() {
+            output = document.getElementById("output");
+            testWebSocket();
+        }
+
+        function testWebSocket() {
+            websocket = new WebSocket(wsUri);
+            websocket.onopen = function (evt) { onOpen(evt) };
+            websocket.onclose = function (evt) { onClose(evt) };
+            websocket.onmessage = function (evt) { onMessage(evt) };
+            websocket.onerror = function (evt) { onError(evt) };
+        }
+
+        function onOpen(evt) {
+            writeToScreen("CONNECTED");
+            doSend("WebSocket rocks");
+        }
+
+        function onClose(evt) {
+            writeToScreen("DISCONNECTED");
+        }
+
+        function onMessage(evt) {
+            writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data + '</span>');
+            websocket.close();
+        }
+
+        function onError(evt) {
+            writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
+        }
+
+        function doSend(message) {
+            writeToScreen("SENT: " + message);
+            websocket.send(message);
+        }
+
+        function writeToScreen(message) {
+            var pre = document.createElement("p");
+            pre.style.wordWrap = "break-word";
+            pre.innerHTML = message;
+            output.appendChild(pre);
+        }
+
+        window.addEventListener("load", init, false);
+
+    </script>
+
+    <h2>WebSocket Test</h2>
+
+    <div id="output"></div>
