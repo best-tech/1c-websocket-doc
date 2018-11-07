@@ -162,7 +162,7 @@ web client (html/js)
 .. index:: html/js
 .. function:: html_client()
         
-    Описание: Пример бота Slack с постоянным подключения и отслеживанием событий
+    Описание: web-страницы для подключения к 1С
     
 .. code-block:: html
    :linenos:
