@@ -157,3 +157,6 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
+
+def setup(app):
+    app.add_javascript('js/custom.js')
